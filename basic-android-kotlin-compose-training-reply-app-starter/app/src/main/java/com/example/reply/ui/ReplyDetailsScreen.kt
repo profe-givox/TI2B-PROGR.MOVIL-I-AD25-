@@ -50,6 +50,7 @@ import androidx.compose.ui.res.stringResource
 import com.example.reply.R
 import com.example.reply.data.Email
 import com.example.reply.data.MailboxType
+import androidx.activity.compose.BackHandler
 
 @Composable
 fun ReplyDetailsScreen(
@@ -57,6 +58,9 @@ fun ReplyDetailsScreen(
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    BackHandler {
+        onBackPressed()
+    }
     Box(modifier = modifier) {
         LazyColumn(
             contentPadding = WindowInsets.safeDrawing.asPaddingValues(),
