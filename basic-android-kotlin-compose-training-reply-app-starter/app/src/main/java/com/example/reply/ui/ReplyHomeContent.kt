@@ -57,7 +57,8 @@ fun ReplyListOnlyContent(
     replyUiState: ReplyUiState,
     onEmailCardPressed: (Email) -> Unit,
     modifier: Modifier = Modifier
-) {
+)
+{
     val emails = replyUiState.currentMailboxEmails
 
     LazyColumn(
@@ -83,6 +84,7 @@ fun ReplyListOnlyContent(
                 }
             )
         }
+
     }
 }
 
