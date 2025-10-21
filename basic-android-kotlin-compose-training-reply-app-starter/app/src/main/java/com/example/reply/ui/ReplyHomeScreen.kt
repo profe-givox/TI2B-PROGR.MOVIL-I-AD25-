@@ -149,7 +149,7 @@ private fun ReplyAppContent(
     navigationItemContentList: List<NavigationItemContent>,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = modifier) {
+    Row(modifier = modifier) {
         AnimatedVisibility(visible = navigationType == ReplyNavigationType.NAVIGATION_RAIL) {
             ReplyNavigationRail(
                 currentTab = replyUiState.currentMailbox,
