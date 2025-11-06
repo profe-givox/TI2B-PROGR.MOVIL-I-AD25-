@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil3.compose.AsyncImage
 import net.ivanvega.archivosmultimediaconcompose.providers.MiFileProviderMedia
 import net.ivanvega.archivosmultimediaconcompose.ui.theme.ArchivosMultimediaConComposeTheme
 import kotlin.contracts.contract
@@ -64,7 +65,10 @@ fun pickphosAndImage (modifier: Modifier = Modifier){
         ActivityResultContracts.TakePicture()) { success ->
         if (success) {
             Log.d("FOTOX", "Imagen capturada con exito")
-            imageUri = uri;
+            Log.d("IMG", hasImage.toString())
+            Log.d("URI", imageUri.toString())
+            if(success) imageUri = uri
+            hasImage = success
         }
     }
 
@@ -77,6 +81,8 @@ fun pickphosAndImage (modifier: Modifier = Modifier){
         }){
             Text(text = stringResource(id=R.string.pick_image_button))
         }
+        AsyncImage(model = imageUri,
+            contentDescription = null, modifier = modifier)
 
     }
 
