@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">ArchivosMultimediaConCompose</string>
     <string name="pick_image_button">Tomar foto</string>
+    <string name="capturar_video">Capturar Video</string>
 </resources>
