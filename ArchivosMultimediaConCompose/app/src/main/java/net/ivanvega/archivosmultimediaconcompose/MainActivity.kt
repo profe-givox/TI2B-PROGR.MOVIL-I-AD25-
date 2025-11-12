@@ -48,7 +48,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArchivosMultimediaConComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    pickphosAndImage(modifier = Modifier.padding(innerPadding))
+                    //pickphosAndImage(modifier = Modifier.padding(innerPadding))
+                   // pickphosAndImage(modifier = Modifier.padding(innerPadding))
+                    GrabarAudioScreen ({} ,{}, {},{})
                 }
             }
         }
