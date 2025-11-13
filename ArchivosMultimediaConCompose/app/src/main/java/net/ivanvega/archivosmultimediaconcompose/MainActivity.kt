@@ -39,9 +39,21 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
 import net.ivanvega.archivosmultimediaconcompose.providers.MiFileProviderMedia
 import net.ivanvega.archivosmultimediaconcompose.ui.theme.ArchivosMultimediaConComposeTheme
+import java.io.File
 import kotlin.contracts.contract
 
 class MainActivity : ComponentActivity() {
+
+    private val recorder by lazy {
+        AndroidAudioRecorder(applicationContext)
+    }
+
+    private val player by lazy {
+        AndroidAudioPlayer(applicationContext)
+    }
+
+    private var audioFile: File? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -50,7 +62,22 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     //pickphosAndImage(modifier = Modifier.padding(innerPadding))
                    // pickphosAndImage(modifier = Modifier.padding(innerPadding))
-                    GrabarAudioScreen ({} ,{}, {},{})
+                    GrabarAudioScreen (
+                        {
+                            File(cacheDir, "audio.mp3").also {
+                                recorder.start(it)
+                                audioFile = it
+                            }
+
+                        } ,
+                        {
+                            recorder.stop()
+                        },
+                        {
+                            audioFile?.let { player.start(it) }
+                        },{
+                            audioFile?.let { player.stop() }
+                        })
                 }
             }
         }
