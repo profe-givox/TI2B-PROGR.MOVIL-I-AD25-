@@ -61,8 +61,8 @@ class MainActivity : ComponentActivity() {
             ArchivosMultimediaConComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     //pickphosAndImage(modifier = Modifier.padding(innerPadding))
-                   // pickphosAndImage(modifier = Modifier.padding(innerPadding))
-                    GrabarAudioScreen (
+                    // pickphosAndImage(modifier = Modifier.padding(innerPadding))
+                    /*GrabarAudioScreen (
                         {
                             File(cacheDir, "audio.mp3").also {
                                 recorder.start(it)
@@ -78,12 +78,14 @@ class MainActivity : ComponentActivity() {
                         },{
                             audioFile?.let { player.stop() }
                         })
+                }*/
+
+                    AlarmasScreen(ProgramarAlarma(applicationContext))
                 }
             }
         }
     }
 }
-
 @Composable
 fun VideoPlayer(videoUri: Uri, modifier: Modifier = Modifier.fillMaxWidth()) {
     val context = LocalContext.current

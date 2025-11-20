@@ -132,12 +132,12 @@ class ProgramarAlarma (
             PendingIntent.getBroadcast(ctx, 1001, intent,  PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }
 
-        alarmManager?.set(
+            alarmManager?.set(
             AlarmManager.ELAPSED_REALTIME_WAKEUP,
             SystemClock.elapsedRealtime() + 5 * 1000,
             alarmIntent
         )
-        Log.d("MisAlarmas", "Quedo progrmada")
+        Log.d("PMII", "Quedo progrmada")
     }
 
     override fun cancel(alarmItem: AlarmItem) {
